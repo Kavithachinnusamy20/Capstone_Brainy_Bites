@@ -2,26 +2,32 @@
 
 import { useEffect } from 'react'
 import './App.css'
+
 function App() {
   async function getData() {
     try {
-      const response = await fetch(BASE_URL + '/todos')
+      const response = await fetch('http://localhost:8080')
       const data = await response.json()
-      setTodos(data)
+      console.log(data)
+      
     } catch (e) {
       console.log(e)
     }
+    
   }
-// Initial Data Load with useEffect
-//- When the component mounts, getData() runs once.
-//- The empty array [] ensures it doesn’t re-run on every render
-
+  // Initial Data Load with useEffect
+  //- When the component mounts, getData() runs once.
+  //- The empty array [] ensures it doesn’t re-run on every render
+  
   useEffect(() => {
+    
     getData()
+    
   }, [])
-return (
+  
+  return (
     <>
-      Hello(client)
+    Hello(client)
     </>
   )
 }
