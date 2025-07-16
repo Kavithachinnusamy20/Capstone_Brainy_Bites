@@ -8,3 +8,16 @@
     )
  }
  export default Test
+
+ /*
+
+ [
+    {
+        question: "What is my name?"
+        choices: ["Bob", "Sally","George","Billy"],
+        answer: "Bob"
+    }
+ ]
+
+
+ */
