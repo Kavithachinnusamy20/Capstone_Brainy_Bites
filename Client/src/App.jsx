@@ -5,7 +5,7 @@ import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import About from "./Components/About";
 import Register from "./Components/Register";
-import Login from "./Components/Login";
+import User from "./Components/User";
 import Test from "./Components/Test";
 
 function App() {
@@ -25,10 +25,11 @@ function App() {
 
   return (
     <BrowserRouter>
+    <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/User/:username" element={<User />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Test" element={<Test />} />
       </Routes>

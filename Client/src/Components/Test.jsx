@@ -3,7 +3,6 @@
  const Test =() =>{
     return(
         <div>
-             <Navbar/>
             <h1>Test</h1>
             </div>
     )
