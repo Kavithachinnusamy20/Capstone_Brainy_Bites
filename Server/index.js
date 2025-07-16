@@ -5,8 +5,9 @@ import cors from 'cors' //middle ware
 import 'dotenv/config'
 
 import  connectDb from './db.js'
-  
 
+
+  
 const app=express()
 
 const port =process.env.PORT
