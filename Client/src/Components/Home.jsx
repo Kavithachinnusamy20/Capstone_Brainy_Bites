@@ -25,9 +25,8 @@
         placeholder="Username*"
         />
         </form>
-        
         <div className="start">
-        <Link className="btn" to={"quiz"}>
+        <Link className="btn" to={"Test"}>
         Start Quiz
         </Link>
         </div>
