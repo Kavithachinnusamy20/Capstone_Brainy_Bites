@@ -7,6 +7,8 @@ import About from "./Components/About";
 import Register from "./Components/Register";
 import User from "./Components/User";
 import Test from "./Components/Test";
+import Error from './Components/Error';
+
 
 function App() {
   async function getData() {
@@ -32,6 +34,9 @@ function App() {
         <Route path="/User/:username" element={<User />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Test" element={<Test />} />
+         <Route path="*" element={<Error/>} />
+        
+
       </Routes>
     </BrowserRouter>
   );
