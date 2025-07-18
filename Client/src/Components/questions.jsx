@@ -11,7 +11,7 @@ const Questions = ({ question, onAnswerSelect }) => {
           <li key={index}>
             <input
               type="radio"
-              name="option"
+              name={`question-${question.id}`} 
               id={`q${index}-option`}
               onChange={() => onAnswerSelect(option)}
             />
