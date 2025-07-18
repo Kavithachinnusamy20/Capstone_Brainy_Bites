@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import './App.css';
 import Navbar from "./Components/Navbar";
-import Home from "./Components/Home";
+import Home from "./Components/home";
 import About from "./Components/About";
-import Register from "./Components/Register";
-import User from "./Components/User";
-import Test from "./Components/Test";
+import Register from "./Components/register";
+import User from "./Components/user";
+import Test from "./Components/test";
 import Error from './Components/Error';
-
+import Result from "./Components/result";
 
 function App() {
   async function getData() {

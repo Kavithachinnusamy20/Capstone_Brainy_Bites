@@ -12,6 +12,7 @@ const Navbar =()=>{
             <Link to ="/Register">Register</Link>
             <Link to ="/User">User</Link>
             <Link to ="/Test">Test</Link>
+            <Link to ="/Result">Result</Link>
         </ul>
         </nav>
     );
