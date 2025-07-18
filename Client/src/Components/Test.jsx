@@ -1,49 +1,42 @@
- import React , { useEffect, useState }  from 'react'
- import Navbar from './Navbar.jsx'
- import Questions from './questions.jsx'
- const Test =() =>{
+// src/components/Test.jsx
+import React, { useState } from "react";
+import Questions from "./questions";
+import { data } from "../Database/data";
 
-     const [check, setChecked] = useState(undefined)
+const Test = () => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState([]);
 
-    const result = useSelector(state => state.result.result);
-    const { queue, trace } = useSelector(state => state.questions);
-    const dispatch = useDispatch()
+  const question = data[currentQuestionIndex];
 
+  const handleAnswerSelect = (selected) => {
+    const updatedAnswers = [...answers];
+    updatedAnswers[currentQuestionIndex] = selected;
+    setAnswers(updatedAnswers);
+  };
 
-    //next button event handler
-     function onNext(){
-        console.log('On previous click')
+  const onNext = () => {
+    if (currentQuestionIndex < data.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
+  };
 
-     //previous button event handler
-    function OnPrev(){
-        console.log('On previous click')
+  const onPrev = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
     }
-    
-    
-    return(
-        <div className ='container'>
-        <h1 className ='title text-light'>Quiz Application</h1>
-      
-        <Questions></Questions>
-        <div className ='grid'>
-        <button className='btn prev' onClick={OnPrev}>Previous</button>
-        <button className='btn next'onClick= {OnNext}>Next</button>
-        </div>
-        </div>
-    )
-}
-export default Test
+  };
 
-/*
+  return (
+    <div className="container">
+      <h1 className="title text-light">Quiz</h1>
+      <Questions question={question} onAnswerSelect={handleAnswerSelect} />
+      <div className="grid">
+        <button className="btn prev" onClick={onPrev}>Previous</button>
+        <button className="btn next" onClick={onNext}>Next</button>
+      </div>
+    </div>
+  );
+};
 
-[
-{
-question: "What is my name?"
-choices: ["Bob", "Sally","George","Billy"],
-answer: "Bob"
-}
-]
-
-
-*/
+export default Test;

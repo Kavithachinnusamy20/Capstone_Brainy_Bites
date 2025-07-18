@@ -20,10 +20,14 @@ function App() {
       console.log(e);
     }
   }
+//  const [answers, setAnswers] = useState([]);
 
-  useEffect(() => {
-    getData();
-  }, []);
+//   const resetQuiz = () => {
+//     setAnswers([]);
+//   };
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <BrowserRouter>
@@ -34,7 +38,9 @@ function App() {
         <Route path="/User/:username" element={<User />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Test" element={<Test />} />
+      
          <Route path="*" element={<Error/>} />
+         <Route path="/Result" element={<Result />} />
         
 
       </Routes>

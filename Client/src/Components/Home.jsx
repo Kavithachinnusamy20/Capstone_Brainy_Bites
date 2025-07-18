@@ -2,6 +2,7 @@
  import Navbar from './Navbar'
  import  { useRef } from "react";
  import { Link } from "react-router-dom";
+ import "../styles/Navbar.css";
  const Home =() =>{
  const inputRef = useRef(null);
     

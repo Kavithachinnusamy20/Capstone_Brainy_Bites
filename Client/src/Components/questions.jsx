@@ -1,48 +1,30 @@
- import React from 'react'
- import { useState ,useEffect} from 'react'
 
- import data from '../Database/data' // Imports the quiz question data from your local file
- 
- 
- 
- const Questions=() =>{
-    
-    const [checked,setChecked]= useState(undefined)
-    
-    const question =data[0]
-    
-    useEffect(() => {
-        console.log(question)
-    })
-    
-    function onSelect(){
-        console.log('radio button change')
-    }
-    return(
-        <div className= 'questions'>
-        {/* Displays the question text.    */}
-        <h2 className='text-light'>{question.question}</h2>
-        
-        <ul key= {question.id}>
-        {
-            question.options.map((q,i)=>(
-                <li key={i}>
-                <input 
-                type ="radio" 
-                value ={true}
-                id ={`q${i}-option`}
-                onChange ={onSelect()}
-                />
-                <label className='text-primary' htmlFor={`q${i}-option`}>{q}</label>
-                <div className ='check checked'></div>
-                </li>
-            ))
-        }
+// src/components/Questions.jsx
+import React from "react";
+
+const Questions = ({ question, onAnswerSelect }) => {
+  return (
+    <div className="questions">
+      <h2 className="text-light">{question.question}</h2>
+      <ul>
+        {question.options.map((option, index) => (
+          <li key={index}>
+            <input
+              type="radio"
+              name="option"
+              id={`q${index}-option`}
+              onChange={() => onAnswerSelect(option)}
+            />
+            <label htmlFor={`q${index}-option`} className="text-primary">
+              {option}
+            </label>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Questions;
         
         
-        
-        </ul>
-        </div>
-    )
-}
-export default Questions
