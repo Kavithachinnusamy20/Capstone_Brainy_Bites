@@ -6,8 +6,10 @@ import 'dotenv/config'
 
 import  connectDb from './db.js'
 
+import registerSchema from './models/Register.js'
 
-  
+
+
 const app=express()
 
 app.use(express.json())
@@ -17,10 +19,12 @@ const port =process.env.PORT
 app.use(cors())
 
 app.get('/',(req,res)=>{
-res.json ('Hello from server')
+     res.json ('Hello from server')
 })
 app.post('/register',(req,res) => {
-
+     registerSchema.create(req.body)
+     .then(register=>res.json(register))
+     .catch(err => res.json(err))
 })
 
 
