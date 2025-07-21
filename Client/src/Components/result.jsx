@@ -35,7 +35,7 @@ export default function Result({resetQuiz}) {
       
       <p className="text-light">No quiz answers found. Try taking the quiz again.</p>
       <Link to="/test">
-      <button className="btn">Go to Quiz</button>
+      <button className="btn">Restart</button>
       </Link>
       </div>
     );

@@ -8,11 +8,11 @@ const Navbar =()=>{
         <h1>Welcome to Brainy Bites Quiz App</h1>
         <ul>
              <li><Link to ="/">Home</Link> </li>
-            <li><Link to ="/About">About</Link> </li>
             <li><Link to ="/Register">Register</Link></li>
             <li><Link to ="/Login">Login</Link></li>
             <li><Link to ="/Quiz">Quiz</Link></li>
             <li><Link to ="/Result">Result</Link></li>
+             <li><Link to ="/About">About</Link> </li>
         </ul>
         </nav>
     );

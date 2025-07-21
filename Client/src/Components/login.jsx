@@ -2,6 +2,7 @@
  import Navbar from './Navbar';
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {Link} from "react-router-dom"
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -51,10 +52,9 @@ const Login = () => {
           />
         </div>
         {error && <p>{error}</p>}
-        <button className="form-input btn" type="submit">Login</button>
-          {/* <Link className="form-input btn"  type="submit" to={"Quiz"}> */}
-         {/* Login */}
-        {/* </Link> */}
+        <Link to ="/quiz">
+        <button className="form-input btn" type="submit">Login</button></Link>
+         
       </form>
     </div>
   );

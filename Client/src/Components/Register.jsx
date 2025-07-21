@@ -13,7 +13,7 @@ const Register = () => {
         
         <div className ="form-content-right">      
         {/* <div class="username-box">Username: {username}</div> */}
-        <h1>Signin & Signup Form</h1>
+        <h3>If you want explore more math quiz Register here:</h3>
         <form className="form" onSubmit={handleSubmit} >
         <div className="form-inputs">
         <label htmlFor="username" className='form-label'>
