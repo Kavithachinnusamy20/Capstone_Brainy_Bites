@@ -1,6 +1,7 @@
 
 // src/components/Questions.jsx
 import React from "react";
+import "../styles/questions.css"
 
 const Questions = ({ question, onAnswerSelect }) => {
   return (
