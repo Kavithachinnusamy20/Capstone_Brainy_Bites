@@ -28,7 +28,7 @@
         </form> */}
         <div className="start">
         <Link className="btn" to={"Quiz"}>
-        Start Quiz
+         Start Quiz
         </Link>
         </div>
         </div>

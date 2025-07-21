@@ -7,21 +7,21 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Result({resetQuiz}) {
-
+  
   const location = useLocation();
   const answers = location.state?.answers || [];
   const navigate = useNavigate()    
-
-
+  
+  
   function onRestart(){
-   resetQuiz?.(); // clears answers
-  console.log('on Restart')
-  navigate('/Test') //restarts quiz
+    resetQuiz?.(); // clears answers
+    console.log('on Restart')
+    navigate('/Test') //restarts quiz
   } 
-
+  
   // Validate each answer against the correct one in the data
   const score = answers.reduce((acc, answer, index) => {
-
+    
     const correctAnswer = data[index]?.correctAnswer; // 'answer' key matches data structure
     return acc + (answer === correctAnswer ? 1 : 0);
   }, 0);
@@ -29,7 +29,7 @@ export default function Result({resetQuiz}) {
   // Handle empty or missing answers
   if (answers.length === 0) {
     return (
-     <div className="container">
+      <div className="container">
       
       <h1 className="title text-light">Your Result</h1>
       
