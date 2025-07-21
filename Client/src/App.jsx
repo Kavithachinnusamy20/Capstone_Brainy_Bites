@@ -5,8 +5,8 @@ import Navbar from "./Components/Navbar";
 import Home from "./Components/home";
 import About from "./Components/About";
 import Register from "./Components/register";
-import User from "./Components/user";
-import Test from "./Components/test";
+import Login from "./Components/login";
+import Quiz from "./Components/quiz";
 import Error from './Components/Error';
 import Result from "./Components/result";
 
@@ -35,9 +35,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
-        <Route path="/User/:username" element={<User />} />
+        <Route path="Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/Test" element={<Test />} />
+        <Route path="/Quiz" element={<Quiz />} />
       
          <Route path="*" element={<Error/>} />
          <Route path="/Result" element={<Result />} />

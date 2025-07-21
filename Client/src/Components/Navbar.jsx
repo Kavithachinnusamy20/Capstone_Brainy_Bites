@@ -10,8 +10,8 @@ const Navbar =()=>{
              <li><Link to ="/">Home</Link> </li>
             <li><Link to ="/About">About</Link> </li>
             <li><Link to ="/Register">Register</Link></li>
-            <li><Link to ="/User">User</Link></li>
-            <li><Link to ="/Test">Quiz</Link></li>
+            <li><Link to ="/Login">Login</Link></li>
+            <li><Link to ="/Quiz">Quiz</Link></li>
             <li><Link to ="/Result">Result</Link></li>
         </ul>
         </nav>

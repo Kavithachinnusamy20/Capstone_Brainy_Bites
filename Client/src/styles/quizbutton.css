@@ -1,0 +1,20 @@
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.prev {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.next, .submit {
+  background-color: #007bff;
+  color: #fff;
+}

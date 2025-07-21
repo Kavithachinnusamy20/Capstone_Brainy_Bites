@@ -21,6 +21,15 @@ const useForm = () => {
 
  const handleSubmit = async (e) => {
   e.preventDefault();
+  
+// Validation logic here
+  if (isValidForm()) {
+    alert('✅ Successful signup!');
+    // You can call a callback or redirect logic if needed
+  } else {
+    alert(' Please correct the errors in the form.');
+  }
+
      setErrors(validate(values));
   try {
     const response = await fetch('http://localhost:8080/register', {

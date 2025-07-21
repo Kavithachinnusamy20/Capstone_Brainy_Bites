@@ -27,9 +27,12 @@
         />
         </form> */}
         <div className="start">
-        <Link className="btn" to={"Quiz"}>
+        <Link className="btn" to={"Register"}>
          Start Quiz
         </Link>
+         {/* <Link className="btn" to={"Quiz"}>
+         Start Quiz
+        </Link> */}
         </div>
         </div>
     );

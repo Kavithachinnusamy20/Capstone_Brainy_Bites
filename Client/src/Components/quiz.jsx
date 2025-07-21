@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Questions from "./questions";
 import { data } from "../Database/data";
 import { useNavigate } from 'react-router-dom'; 
+import "../styles/quizbutton.css"
 
 const Test = () => {
   const navigate = useNavigate(); // Initialize navigation
@@ -41,14 +42,14 @@ const Test = () => {
     <div className="container">
     <h1 className="title text-light">Quiz</h1>
     <Questions question={question} onAnswerSelect={handleAnswerSelect} />
-    
+    <div className ="button-row">
     <button className="btn prev" onClick={onPrev}>Previous</button>
     {currentQuestionIndex < data.length - 1 ? (
       <button className="btn next" onClick={onNext}>Next</button>
     ) : (
       <button className="btn submit" onClick={handleSubmit}>Submit</button>
     )}
-    
+    </div>
     </div>
   );
 };

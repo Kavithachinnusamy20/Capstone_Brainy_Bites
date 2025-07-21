@@ -2,6 +2,8 @@ import React from 'react';
 import "../styles/register.css"
 import useForm from '../hooks/useForm';
 import { useParams } from 'react-router-dom';
+import Login from './login'
+ import { Link } from "react-router-dom";
 
 const Register = () => {
     const {username} = useParams();
@@ -80,7 +82,8 @@ const Register = () => {
         
         <button className ="form-input btn" type ="submit">Signup </button>
         <span className="form-input-login">
-        <p>Already have an account?</p>Login&nbsp;<a href='#'>here</a>
+        <p>Already have an account?</p>Login&nbsp;
+        <Link to="/Login">here</Link>  
         </span>
         </form>
         </div>
