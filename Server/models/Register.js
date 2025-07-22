@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from 'bcryptjs';
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -20,20 +21,32 @@ const userSchema = new mongoose.Schema({
     required: [true, "Password required"],
     minlength: [6, "Password needs to be 6 characters or more"],
     trim: true,
-  },
-  password2: {
-    type: String,
-    required: [true, "Confirm password is required"],
-    trim: true,
-    validate: {
-      validator: function (value) {
-        return value === this.password;
-      },
-      message: "Passwords do not match",
-    },
-  },
+  } 
+  
 });
 
-const User = mongoose.model("User", userSchema);
+
+/** Hash the password before saving */
+
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
+
+/**  Method to validate password during login */
+userSchema.methods.isValidPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+
+
+const User = mongoose.model("users", userSchema);
 
 export default User;

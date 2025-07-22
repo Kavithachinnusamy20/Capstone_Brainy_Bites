@@ -12,10 +12,4 @@ router.route('/questions')
         .delete(controller.dropQuestions) /** DELETE Request */
 
 
-router.route('/questions')
-        .get(controller.getQuestions) /** GET Request */
-        .post(controller.insertQuestions) /** POST Request */
-        .delete(controller.dropQuestions) /** DELETE Request */
-
-        
 export default router;
