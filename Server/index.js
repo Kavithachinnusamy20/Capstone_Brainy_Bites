@@ -1,14 +1,10 @@
 import express from 'express'
-
 import cors from 'cors' //middle ware
-
 import 'dotenv/config'
-
 import  connectDb from './db.js'
-
 import registerSchema from './models/Register.js'
-
 import seedQuestions from "./QuizDataLoad/loadQuiz.js"
+import router from "./router/route.js"
 
 const app=express()
 
@@ -18,11 +14,12 @@ const port =process.env.PORT
 
 app.use(cors())
 
-// app.use('/api',router)
+app.use('/api', router)  /**APIs */
 
 app.get('/',(req,res)=>{
      res.json ('Hello from server')
 })
+
 app.post('/register',(req,res) => {
 
      registerSchema.create(req.body)
