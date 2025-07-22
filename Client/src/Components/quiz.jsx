@@ -4,9 +4,9 @@ import Questions from "./questions";
 import { useNavigate } from "react-router-dom";
 import "../styles/quizbutton.css";
 
-const Quiz = () => {
+const Quiz = ({setData,data}) => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+ 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
 
@@ -22,7 +22,7 @@ const Quiz = () => {
   }, []);
 
   const question = data[currentQuestionIndex];
-
+ console.log(`answers`,answers)
   const handleAnswerSelect = (selected) => {
     const updatedAnswers = [...answers];
     updatedAnswers[currentQuestionIndex] = selected;

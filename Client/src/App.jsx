@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import './App.css';
 import Navbar from "./Components/Navbar";
@@ -11,6 +11,7 @@ import Error from './Components/Error';
 import Result from "./Components/result";
 
 function App() {
+   const [data, setData] = useState([]);
   async function getData() {
     try {
       const response = await fetch('http://localhost:8080');
@@ -37,10 +38,10 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/Quiz" element={<Quiz />} />
+        <Route path="/Quiz" element={<Quiz setData={setData}data={data}/>}/>
       
          <Route path="*" element={<Error/>} />
-         <Route path="/Result" element={<Result />} />
+         <Route path="/Result" element={<Result data={data}/>} />
         
 
       </Routes>

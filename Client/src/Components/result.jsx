@@ -1,22 +1,24 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { Link,useLocation } from 'react-router-dom';
-import { data } from '../Database/data';
-
+// import { data } from '../Database/data';
+import Quiz from './quiz'
 import { useNavigate } from "react-router-dom";
 
 
-export default function Result({resetQuiz}) {
+export default function Result({resetQuiz,data}) {
   
   const location = useLocation();
   const answers = location.state?.answers || [];
-  const navigate = useNavigate()    
+  // const quizData =location.state?.data ||[];
+  const navigate = useNavigate()  
+  console.log(`quizdata`,data)  
   
   
   function onRestart(){
     resetQuiz?.(); // clears answers
     console.log('on Restart')
-    navigate('/Quiz') //restarts quiz
+    navigate('/quiz') //restarts quiz
   } 
   
   // Validate each answer against the correct one in the data
