@@ -1,57 +1,73 @@
 // src/components/Test.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Questions from "./questions";
-import { data } from "../Database/data";
-import { useNavigate } from 'react-router-dom'; 
-import "../styles/quizbutton.css"
+import { useNavigate } from "react-router-dom";
+import "../styles/quizbutton.css";
 
-const Test = () => {
-  const navigate = useNavigate(); // Initialize navigation
+const Quiz = () => {
+  const navigate = useNavigate();
+  const [data, setData] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
-  
+
+  // Get all Quiz questions from database. 
+  useEffect(() => {
+    fetch("http://localhost:8080/api/questions")
+      .then((response) => response.json())
+      .then((quizData) => {
+        setData(quizData);
+        console.log("Fetched quiz data:", quizData);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
   const question = data[currentQuestionIndex];
-  
+
   const handleAnswerSelect = (selected) => {
     const updatedAnswers = [...answers];
     updatedAnswers[currentQuestionIndex] = selected;
-    console.log(updatedAnswers)
     setAnswers(updatedAnswers);
+    console.log("Updated answers:", updatedAnswers);
   };
-  
+
   const onNext = () => {
     if (currentQuestionIndex < data.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-      const inputs = document.querySelectorAll('input')
-      inputs.forEach(i => i.checked = false)
-      console.log(inputs)
+      setCurrentQuestionIndex((prev) => prev + 1);
+
+      // Clear radio buttons or checkboxes if needed
+      const inputs = document.querySelectorAll("input[type='radio'], input[type='checkbox']");
+      inputs.forEach((input) => (input.checked = false));
     }
   };
-  
+
   const onPrev = () => {
     if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
+      setCurrentQuestionIndex((prev) => prev - 1);
     }
   };
-  
+
   const handleSubmit = () => {
-    navigate('/result', { state: { answers } }); // Pass answers to Result page
+    navigate("/result", { state: { answers } });
   };
-  
+
+  if (data.length === 0) {
+    return <div>Loading quiz...</div>;
+  }
+
   return (
     <div className="container">
-    <h1 className="title text-light">Quiz</h1>
-    <Questions question={question} onAnswerSelect={handleAnswerSelect} />
-    <div className ="button-row">
-    <button className="btn prev" onClick={onPrev}>Previous</button>
-    {currentQuestionIndex < data.length - 1 ? (
-      <button className="btn next" onClick={onNext}>Next</button>
-    ) : (
-      <button className="btn submit" onClick={handleSubmit}>Submit</button>
-    )}
-    </div>
+      <h1 className="title text-light">Quiz</h1>
+      <Questions question={question} onAnswerSelect={handleAnswerSelect} />
+      <div className="button-row">
+        <button className="btn prev" onClick={onPrev}>Previous</button>
+        {currentQuestionIndex < data.length - 1 ? (
+          <button className="btn next" onClick={onNext}>Next</button>
+        ) : (
+          <button className="btn submit" onClick={handleSubmit}>Submit</button>
+        )}
+      </div>
     </div>
   );
 };
 
-export default Test;
+export default Quiz;

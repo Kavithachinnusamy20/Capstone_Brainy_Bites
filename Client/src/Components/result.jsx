@@ -16,7 +16,7 @@ export default function Result({resetQuiz}) {
   function onRestart(){
     resetQuiz?.(); // clears answers
     console.log('on Restart')
-    navigate('/Test') //restarts quiz
+    navigate('/Quiz') //restarts quiz
   } 
   
   // Validate each answer against the correct one in the data
@@ -34,9 +34,9 @@ export default function Result({resetQuiz}) {
       <h1 className="title text-light">Your Result</h1>
       
       <p className="text-light">No quiz answers found. Try taking the quiz again.</p>
-      <Link to="/test">
-      <button className="btn">Restart</button>
-      </Link>
+       
+      <button className="btn" onClick={onRestart}>Restart</button>
+       
       </div>
     );
   }

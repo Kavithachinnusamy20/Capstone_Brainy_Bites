@@ -7,7 +7,7 @@ const Questions = ({ question, onAnswerSelect }) => {
   return (
     <div className="questions">
 
-    <h2 className="text-light">{question.question} </h2> 
+    <h2 className="text-light"> {question.question} </h2> 
       <ol>
         {question.options.map((option, index) => (
           <li key={index}>
