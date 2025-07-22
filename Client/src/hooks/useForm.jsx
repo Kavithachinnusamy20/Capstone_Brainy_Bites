@@ -23,16 +23,16 @@ const useForm = () => {
     e.preventDefault();
     
     // Validation logic here
-    if (isValidForm()) {
-      alert('✅ Successful signup!');
-      // You can call a callback or redirect logic if needed
-    } else {
-      alert(' Please correct the errors in the form.');
-    }
+    // if (isValidForm()) {
+    //   alert('Successful signup!');
+    //   // You can call a callback or redirect logic if needed
+    // } else {
+    //   alert(' Please correct the errors in the form.');
+    // }
     
-    setErrors(validate(values));
+    // setErrors(validate(values));
     try {
-      const response = await fetch('http://localhost:8080/register', {
+      const response = await fetch('http://localhost:8080/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
