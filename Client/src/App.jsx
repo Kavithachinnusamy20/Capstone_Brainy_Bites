@@ -1,6 +1,5 @@
-import { useEffect,useState } from 'react';
+import { useEffect,useState } from 'react'; //useState manage local state, useEffect used to fetching data
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import './App.css';
 import Navbar from "./Components/Navbar";
 import Home from "./Components/home";
 import About from "./Components/About";
@@ -9,9 +8,9 @@ import Login from "./Components/login";
 import Quiz from "./Components/quiz";
 import Error from './Components/Error';
 import Result from "./Components/result";
-
+//data fetching from local backend
 function App() {
-   const [data, setData] = useState([]);
+  const [data, setData] = useState([]); //local state quiz questions fetched
   async function getData() {
     try {
       const response = await fetch('http://localhost:8080');
@@ -21,15 +20,16 @@ function App() {
       console.log(e);
     }
   }
-//  const [answers, setAnswers] = useState([]);
+  //  const [answers, setAnswers] = useState([]);
 
-//   const resetQuiz = () => {
-//     setAnswers([]);
-//   };
+  // const resetQuiz = () => {
+  //    setAnswers([]);
+  //  };
   // useEffect(() => {
-  //   getData();
-  // }, []);
-
+  //    getData();
+  //  }, []);
+  
+//routing setup
   return (
     <BrowserRouter>
     <Navbar/>
@@ -38,13 +38,12 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/Quiz" element={<Quiz setData={setData}data={data}/>}/>
-      
+        {/*data props for questions  */}
+        <Route path="/Quiz" element={<Quiz setData={setData}data={data}/>}/> 
          <Route path="*" element={<Error/>} />
+         {/* using stored data and quiz answers */}
          <Route path="/Result" element={<Result data={data}/>} />
-        
-
-      </Routes>
+        </Routes>
     </BrowserRouter>
   );
 }

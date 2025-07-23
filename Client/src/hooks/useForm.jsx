@@ -22,16 +22,7 @@ const useForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validation logic here
-    // if (isValidForm()) {
-    //   alert('Successful signup!');
-    //   // You can call a callback or redirect logic if needed
-    // } else {
-    //   alert(' Please correct the errors in the form.');
-    // }
-    
-    // setErrors(validate(values));
-    try {
+       try {
       const response = await fetch('http://localhost:8080/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -39,11 +30,18 @@ const useForm = () => {
       });
       const data = await response.json();
       console.log('Server response:', data.message);
-    } catch (error) {
+
+     if (response.ok) {
+      window.alert(" Signup successful! Welcome to Brainy Bites.");
+      setValues({ username: "", email: "", password: "", password2: "" });
+    } else {
+      window.alert(` Signup failed: ${data.error || "Something went wrong"}`);
+    }
+
+      } catch (error) {
       console.error('Signup error:', error);
     }
     
-    // console.log("Validation errors:", validationErrors);
   };
   
   return { handleChange, values, handleSubmit, errors };

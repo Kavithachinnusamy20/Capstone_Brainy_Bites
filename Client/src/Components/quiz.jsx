@@ -23,6 +23,7 @@ const Quiz = ({setData,data}) => {
 
   const question = data[currentQuestionIndex];
  console.log(`answers`,answers)
+
   const handleAnswerSelect = (selected) => {
     const updatedAnswers = [...answers];
     updatedAnswers[currentQuestionIndex] = selected;
