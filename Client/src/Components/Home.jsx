@@ -20,7 +20,7 @@
         </ol>
         <div className="start">
         <Link className="btn" to={"Register"}>
-        Start Quiz
+       👉 Start Quiz
         </Link>
         </div>
         </div>

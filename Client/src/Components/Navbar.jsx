@@ -12,7 +12,7 @@ const Navbar =()=>{
             <li><Link to ="/Login">Login</Link></li>
             <li><Link to ="/Quiz">Quiz</Link></li>
             <li><Link to ="/Result">Result</Link></li>
-             <li><Link to ="/About">About</Link> </li>
+             <li><Link to ="/About">Resources</Link> </li>
         </ul>
         </nav>
     );
