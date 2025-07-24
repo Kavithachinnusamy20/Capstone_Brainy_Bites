@@ -3,14 +3,15 @@ import React, { useState, useEffect } from "react";
 import Questions from "./questions";
 import { useNavigate } from "react-router-dom";
 import "../styles/quizbutton.css";
-
+// data: quiz questions passed in as props
+// setData: function to update the questions from the parent() component
 const Quiz = ({setData,data}) => {
   const navigate = useNavigate();
   
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   
-  // Get all Quiz questions from database. 
+  // Get all Quiz questions from API
   useEffect(() => {
     fetch("http://localhost:8080/api/questions")
     .then((response) => response.json())

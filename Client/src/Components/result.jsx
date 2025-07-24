@@ -5,18 +5,18 @@ import { Link,useLocation } from 'react-router-dom';
 import Quiz from './quiz'
 import { useNavigate } from "react-router-dom";
 
-
-export default function Result({resetQuiz,data}) {
+//result component receive props
+const Result = ({resetQuiz,data}) => {
   
   const location = useLocation();
+  //location.state.answers: gets user answers passed via navigation
   const answers = location.state?.answers || [];
-  // const quizData =location.state?.data ||[];
-  const navigate = useNavigate()  
-  console.log(`quizdata`,data)  
+   const navigate = useNavigate()  
+  // console.log(`quizdata`,data)  
   
   
   function onRestart(){
-    resetQuiz?.(); // clears answers
+    resetQuiz?.(); 
     console.log('on Restart')
     navigate('/quiz') //restarts quiz
   } 
@@ -55,3 +55,4 @@ export default function Result({resetQuiz,data}) {
     
   )  
 }
+export default Result;

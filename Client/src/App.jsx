@@ -17,20 +17,18 @@ function App() {
       const response = await fetch('http://localhost:8080');
       const data = await response.json();
       console.log(data);
+      setData(data); //update state with fetched questions
     } catch (e) {
       console.log(e);
     }
   }
   //  const [answers, setAnswers] = useState([]);
-
   // const resetQuiz = () => {
   //    setAnswers([]);
   //  };
   // useEffect(() => {
   //    getData();
   //  }, []);
-  
-//routing setup
   return (
     <BrowserRouter>
     <Navbar/>

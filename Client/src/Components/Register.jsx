@@ -1,16 +1,16 @@
 import React from 'react';
 import "../styles/register.css"
 import useForm from '../hooks/useForm';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import Login from './login'
  import { Link } from "react-router-dom";
 
+ //creating registration form
 const Register = () => {
-    const {username} = useParams();
+    // const {username} = useParams();
+    //useForm a custom hook that handles form logic (like state, validation, and submission)
     const { handleChange, values, handleSubmit,errors } = useForm();
-    //creating registeration form
     return (
-        
         <div className ="form-content-right">      
         {/* <div class="username-box">Username: {username}</div> */}
         <h3>If you want explore more math quiz Register here:</h3>
