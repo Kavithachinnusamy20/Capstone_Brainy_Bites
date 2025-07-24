@@ -22,7 +22,7 @@ const useForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-       try {
+    try {
       const response = await fetch('http://localhost:8080/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -30,15 +30,15 @@ const useForm = () => {
       });
       const data = await response.json();
       console.log('Server response:', data.message);
-
-     if (response.ok) {
-      window.alert(" Signup successful! Welcome to Brainy Bites.");
-      setValues({ username: "", email: "", password: "", password2: "" });
-    } else {
-      window.alert(` Signup failed: ${data.error || "Something went wrong"}`);
-    }
-
-      } catch (error) {
+      
+      if (response.ok) {
+        window.alert(" Signup successful! Welcome to Brainy Bites.");
+        setValues({ username: "", email: "", password: "", password2: "" });
+      } else {
+        window.alert(` Signup failed: ${data.error || "Something went wrong"}`);
+      }
+      
+    } catch (error) {
       console.error('Signup error:', error);
     }
     

@@ -8,7 +8,7 @@ import Login from './login'
 const Register = () => {
     const {username} = useParams();
     const { handleChange, values, handleSubmit,errors } = useForm();
-    
+    //creating registeration form
     return (
         
         <div className ="form-content-right">      
@@ -49,7 +49,7 @@ const Register = () => {
         
         <div className="form-inputs">
         <label htmlFor="password" className='form-label'>
-        password
+        Password
         </label>
         <input 
         type="password"
@@ -62,8 +62,7 @@ const Register = () => {
         />
         {errors.password && <p>{errors.password}</p>}
         </div>
-        
-        
+            
         <div className="form-inputs">
         <label htmlFor="password2" className='form-label'>
         Confirm password
