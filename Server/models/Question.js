@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 const questionSchema = mongoose.Schema({
-  id: Number,
+  id: {
+    type : Number,
+     unique: true,
+     index: true
+  },
   question: String,
   options: [String],
   correctAnswer: String

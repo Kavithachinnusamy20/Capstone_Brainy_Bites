@@ -18,6 +18,7 @@ export async function getQuestions(req, res) {
 }
 
 /** Insert multiple questions */
+//router.post('/questions',async (req,res))
 export async function insertQuestions(req, res) {
   try {
     const { questions } = req.body; // Make sure questions are sent in request body
@@ -38,7 +39,7 @@ export async function insertQuestions(req, res) {
 /** Delete all questions */
 export async function dropQuestions(req, res) {
   try {
-    console.log("delet question 1 :", req.params.id );
+    console.log("delete question 1 :", req.params.id );
     await Questions.findByIdAndDelete(req.params.id);
     res.json({ msg: ' question deleted successfully!' });
   } catch (error) {

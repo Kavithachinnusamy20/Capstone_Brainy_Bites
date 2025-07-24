@@ -37,6 +37,9 @@ npm run dev
 # To add React Router DOM 
 npm install react-router-dom
 
+# To install Axios
+npm install axios
+
 /**server/backend**/ 
  # Create package.json
 npm init -y 
@@ -72,7 +75,7 @@ Capstone Project── Components/
 
 /**Client**/
 ├── Components/
-    └── .jsx             # Landing page
+ |   └── home.jsx            # Landing page
 │   ├── Navbar.jsx           # Navigation bar -React Router for routings
 │   ├── Register.jsx         # User registration page
 │   ├── Login.jsx            # Login page for authentication
@@ -80,7 +83,7 @@ Capstone Project── Components/
 |   ├── Questions.jsx        # question display format
 │   ├── Result.jsx           # Display of user score after quiz
 │   ├── Error.jsx            # Fallback for route or server errors
-│   |__QuestionsAdmin
+│   |__QuestionsAdmin.jsx
 │
 ├── hooks/
 │   └── useForm.js           # Custom hook for Registerform handling and validation
@@ -117,4 +120,4 @@ Capstone Project── Components/
 ┃___index.js                #  Node.js application, handling API routes, authentication,
                              middleware, and environment configuration
 
- ![alt text![alt text](image-1.png)                          
+ ![alt text![alt text](image-1.png)   ![alt text](image-2.png)  ![alt text](image. ![alt text](image-1.png)png)                     

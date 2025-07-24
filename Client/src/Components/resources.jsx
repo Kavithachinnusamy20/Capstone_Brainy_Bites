@@ -14,7 +14,7 @@ function Resources() {
         </a>
        <h3> <a href="https://www.thatquiz.org/">ThatQuiz</a></h3>
        <h3> <a href="https://mastermath.info/lessons">Mastermath</a></h3>
-       <h3> <a href="https://mastermath.info/lessons">KutaSoftware</a></h3>
+       <h3> <a href="https://www.kutasoftware.com">KutaSoftware</a></h3>
         
         </div>
     )

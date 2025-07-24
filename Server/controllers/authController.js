@@ -3,6 +3,7 @@ import User from '../models/Register.js';
 import bcrypt from 'bcrypt'; // For password hashing
 
 //  Register User
+//router.get('/' ,async (req,res))
 export async function registerUser(req, res) {
   try {
     console.log("Register user here " , req.body);
