@@ -21,11 +21,16 @@ const Result = ({resetQuiz,data}) => {
     navigate('/quiz') //restarts quiz
   } 
   
-  // Validate each answer against the correct one in the data
+  // Validate each answer against the correct one in the data acc stands for accumulator
   const score = answers.reduce((acc, answer, index) => {
-    
-    const correctAnswer = data[index]?.correctAnswer; // 'answer' key matches data structure
-    return acc + (answer === correctAnswer ? 1 : 0);
+    const correctAnswer = data[index]?.correctAnswer; 
+
+    // Treat unanswered or incorrect answers as mistakes
+  if (answer === undefined || answer === null || answer === '') {
+    return acc; // no points for unanswered
+  }
+
+    return acc + (answer === correctAnswer ? 1 : 0); //1 point for correct
   }, 0);
   
   // Handle empty or missing answers
@@ -42,7 +47,6 @@ const Result = ({resetQuiz,data}) => {
       </div>
     );
   }
-  
   
   return(
     
