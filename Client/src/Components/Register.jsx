@@ -39,7 +39,7 @@ const Register = () => {
         type="text"
         id="email"
         name ="email"
-        className ="fprm-input"
+        className ="form-input"
         placeholder="Enter your email"
         value ={values.email}
         onChange={handleChange}

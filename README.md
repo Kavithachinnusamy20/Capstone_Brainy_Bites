@@ -3,6 +3,9 @@
 
 
 This is a full-stack MERN (MongoDB, Express, React, Node.js) quiz application that allows users to create, take, and manage quizzes.
+/**visual pages**/
+ C:\Users\rajku\OneDrive\Desktop\325_9_Kavitha_Capstone_Project\project_screenshots
+
 /**Features**/
 * Working with complex MongoDB, queries, schemas, models.
 * User registration form and form validation
@@ -38,7 +41,7 @@ npm install react-router-dom
  # Create package.json
 npm init -y 
 
-# Main server filenpm install express      # Web framework            
+# Main server file       # Web framework            
 touch index.js
 
 # create node-modules and package-lock-json
@@ -67,9 +70,9 @@ rm -rf node_modules package-lock.json npm install
 /**Project structure**/
 Capstone Project── Components/
 
-Client/
+/**Client**/
 ├── Components/
-    └── Home.jsx             # Landing page
+    └── .jsx             # Landing page
 │   ├── Navbar.jsx           # Navigation bar -React Router for routings
 │   ├── Register.jsx         # User registration page
 │   ├── Login.jsx            # Login page for authentication
@@ -77,7 +80,7 @@ Client/
 |   ├── Questions.jsx        # question display format
 │   ├── Result.jsx           # Display of user score after quiz
 │   ├── Error.jsx            # Fallback for route or server errors
-│  
+│   |__QuestionsAdmin
 │
 ├── hooks/
 │   └── useForm.js           # Custom hook for Registerform handling and validation
@@ -90,7 +93,8 @@ Client/
 ├──App.css                   # styling about page
 ├── App.jsx                  # Entry all routes and components and Fetch for making API requests
 └── main.js                  # Main React DOM rendering
-Server/
+
+/**Server**/
 ├── controllers/
 │   ├── authControllers.js   # #bcrypt for database operations for secure password 
 |    |                          handling   Login a registration logic
@@ -108,7 +112,9 @@ Server/
 
 
 ┣___db.js                  #connection between your Node.js application and MongoDB 
-                          using the connection string stored in the environment variable MONGO_URL.
+                           using the connection string stored in the environment variable MONGO_URL.
 ┃ 
 ┃___index.js                #  Node.js application, handling API routes, authentication,
                              middleware, and environment configuration
+
+ ![alt text![alt text](image-1.png)                          

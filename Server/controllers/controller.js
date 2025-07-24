@@ -4,8 +4,11 @@ import Questions from '../models/Question.js';
 /** Get all questions */
 export async function getQuestions(req, res) {
   try {
+    console.log("get questions")
     // const questions = await Questions.find();
     const questions = await Questions.aggregate([{ $sample: { size: 5 } }]);
+
+    //  console.log("get questions 1 ",questions)
     // console.log("Questions fetched :", questions);
     res.json(questions);
   } catch (error) {
@@ -31,11 +34,13 @@ export async function insertQuestions(req, res) {
   }
 }
 
+
 /** Delete all questions */
 export async function dropQuestions(req, res) {
   try {
-    await Questions.deleteMany();
-    res.json({ msg: 'All questions deleted successfully!' });
+    console.log("delet question 1 :", req.params.id );
+    await Questions.findByIdAndDelete(req.params.id);
+    res.json({ msg: ' question deleted successfully!' });
   } catch (error) {
     console.error('Error deleting questions:', error);
     res.status(500).json({ error: 'Internal Server Error' });

@@ -12,4 +12,4 @@ router.route('/register')
         .delete(controller.deleteUser) /** DELETE Request */
 
 
-export default router;
+export default router; 

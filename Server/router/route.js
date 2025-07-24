@@ -11,5 +11,8 @@ router.route('/questions')
         .post(controller.insertQuestions) /** POST Request */
         .delete(controller.dropQuestions) /** DELETE Request */
 
+router.route('/deleteQuestions/:id')
+        .delete(controller.dropQuestions) /** DELETE Request */
+
 
 export default router;
