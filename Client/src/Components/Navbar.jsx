@@ -5,7 +5,7 @@ import "../styles/Navbar.css"
 const Navbar =()=>{
     return (
     <nav> 
-        <h1>Welcome to Brainy Bites Quiz App</h1>
+        <h2> Brainy Bites Quiz</h2>
         <ul>
             <li><Link to ="/">Home</Link> </li>
             <li><Link to ="/Register">Register</Link></li>

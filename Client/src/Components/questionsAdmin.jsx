@@ -31,34 +31,34 @@ const handleDelete = async (_id) => {
 
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Question List</h2>
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
-        <thead>
-          <tr>
-            <th style={{ borderBottom: "1px solid #ccc", padding: "10px" }}>ID</th>
-            <th style={{ borderBottom: "1px solid #ccc", padding: "10px" }}>Question</th>
-            <th style={{ borderBottom: "1px solid #ccc", padding: "10px" }}>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {questions.map((q) => (
-            <tr key={q._id}>
-              <td style={{ padding: "10px" }}>{q.id}</td>
-              <td style={{ padding: "20px" }}>{q.question}</td>
-              <td style={{ padding: "10px" }}>
-                <button
-                  onClick={() => handleDelete(q._id)}
-                  style={{ color: "red", border: "none", background: "none", cursor: "pointer" }}
-                >
-                  🗑️ Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <div style={{ padding: "20px", backgroundColor: "#fff" }}>
+  <h2>Question List</h2>
+  <table style={{ width: "100%", borderCollapse: "collapse", backgroundColor: "#fff", border: "1px solid #ccc" }}>
+    <thead>
+      <tr>
+        <th style={{ border: "1px solid #ccc", padding: "10px", backgroundColor: "#fff" }}>ID</th>
+        <th style={{ border: "1px solid #ccc", padding: "10px", backgroundColor: "#fff" }}>Question</th>
+        <th style={{ border: "1px solid #ccc", padding: "10px", backgroundColor: "#fff" }}>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {questions.map((q) => (
+        <tr key={q._id}>
+          <td style={{ padding: "10px", border: "1px solid #ccc", backgroundColor: "#fff" }}>{q.id}</td>
+          <td style={{ padding: "20px", border: "1px solid #ccc", backgroundColor: "#fff" }}>{q.question}</td>
+          <td style={{ padding: "10px", border: "1px solid #ccc", backgroundColor: "#fff" }}>
+            <button
+              onClick={() => handleDelete(q._id)}
+              style={{ color: "red", border: "none", background: "none", cursor: "pointer" }}
+            >
+              🗑️ Delete
+            </button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
   );
 };
 
