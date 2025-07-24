@@ -6,15 +6,16 @@ import QuestionGrid from "./Components/questionsAdmin";
 import Register from "./Components/register";
 import Login from "./Components/login";
 import Quiz from "./Components/quiz";
-import Error from './Components/Error';
+import Error from './Components/error';
 import Result from "./Components/result";
 import Resources from "./Components/resources";
+const BASE_URL =  `${import.meta.env.VITE_BASE_URL}`
 //data fetching from local backend
 function App() {
   const [data, setData] = useState([]); //local state quiz questions fetched
   async function getData() {
     try {
-      const response = await fetch('http://localhost:8080');
+      const response = await fetch(`${BASE_URL}`);
       const data = await response.json();
       console.log(data);
       setData(data); //update state with fetched questions

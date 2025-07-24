@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {Link} from "react-router-dom"
-
+const BASE_URL =  `${import.meta.env.VITE_BASE_URL}`
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
@@ -21,7 +21,7 @@ const Login = () => {
         const username = formData.username;
         const password = formData.password;
         
-        const response = await fetch(`http://localhost:8080/auth/register?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`, {
+        const response = await fetch(`${BASE_URL}/auth/register?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`, {
           method: 'GET'
         });
         

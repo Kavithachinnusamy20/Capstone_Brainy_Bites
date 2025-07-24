@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import validate from '../utils/validate';
+const BASE_URL =  `${import.meta.env.VITE_BASE_URL}`
 
 const useForm = () => {
   const [values, setValues] = useState({
@@ -23,7 +24,7 @@ const useForm = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch('http://localhost:8080/auth/register', {
+      const response = await fetch(`${BASE_URL}/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
