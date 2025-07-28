@@ -113,7 +113,13 @@ export const data = [
   "question": "Solve for x: 2x - 5 = 9",
   "options": ["2", "7", "5", "9"],
   "correctAnswer": "7"
-}
+},
+ {
+    "id": 20,
+    "question": "What is 6 - (-3)?",
+    "options": ["3", "9", "-3", "0"],
+    "correctAnswer": "9"
+  },
 ];
 
 export default data;

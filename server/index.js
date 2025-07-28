@@ -26,5 +26,5 @@ app.get('/',(req,res)=>{
 app.listen(port, ()=>{
      console.log('Listening on port: '+ port)
      connectDb();
-// seedQuestions();   // adds quiz questions connects to DB 
+//  seedQuestions();   // adds quiz questions connects to DB 
 })

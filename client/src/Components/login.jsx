@@ -34,7 +34,17 @@ const Login = () => {
         } else {
           console.log('Validation result:', data.msg || 'Login successful');
           navigate("/Quiz")
+          
         }
+        if (response.ok) {
+        window.alert(" login successful! Welcome to Brainy Bites.");
+        setValues({ username: "", password: ""});
+      } else {
+        window.alert(` login failed: ${data.error || "Something went wrong"}`);
+      }
+
+
+
       } catch (error) {
         setError(" Validation request failed: ", error);
         console.error('Validation request failed:', error);

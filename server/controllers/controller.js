@@ -7,11 +7,9 @@ export async function getQuestions(req, res) {
     console.log("get questions")
     // const questions = await Questions.find();
     const questions = await Questions.aggregate([{ $sample: { size: 5 } }]);
-
-    //  console.log("get questions 1 ",questions)
-    // console.log("Questions fetched :", questions);
-    res.json(questions);
-  } catch (error) {
+     res.json(questions);
+  } 
+  catch (error) {
     console.error('Error fetching questions:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }

@@ -3,7 +3,7 @@ import User from '../models/Register.js';
 import bcrypt from 'bcrypt'; // For password hashing
 
 //  Register User
-//router.get('/' ,async (req,res))
+//router.post('/' ,async (req,res))
 export async function registerUser(req, res) {
   try {
     console.log("Register user here " , req.body);
@@ -12,18 +12,14 @@ export async function registerUser(req, res) {
     if (!username || !email || !password) {
       return res.status(400).json({ error: "All fields are required" });
     }
-
-    console.log("Register user here 2 " );
+  
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(409).json({ error: "Username already exists" });
     }
-  console.log("Register user here 3 " );
-
+  
     const newUser = new User({ username, email, password });
     await newUser.save();
-
-    console.log("Register user here 4 " );
 
     res.status(201).json({ msg: "User registered successfully" });
   } catch (error) {
@@ -31,7 +27,7 @@ export async function registerUser(req, res) {
   }
 }
 
-//  Validate Login
+// router.post('/' ,async (req,res))
 export async function validateUser(req, res) {
   try {
     const { username, password } = req.query;
